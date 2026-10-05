@@ -1,0 +1,101 @@
+:root{font-family:"Comic Sans MS","Segoe Print","Bradley Hand",system-ui,sans-serif;color:#171717;background:#f7f7f4;--ink:#171717}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background-color:#f6f6f2;background-image:radial-gradient(#d7d7d2 1px,transparent 1px);background-size:9px 9px}
+button,input{font:inherit}
+.paper{background:rgba(255,255,255,.88);border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(0,0,0,.08)}
+.eyebrow{font-size:9px;letter-spacing:.14em;font-weight:700}
+
+/* Top bar */
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 32px;border-bottom:2px solid var(--ink);background:rgba(247,247,243,.96)}
+.brand{display:flex;align-items:center;gap:10px}
+.brandmark{width:40px;height:40px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:13px;transform:rotate(-4deg);background:#fff}
+.brand b,.brand span{display:block;letter-spacing:.06em;font-size:12px}
+.brand span{font-size:9px;margin-top:2px}
+.top-right{display:flex;align-items:center;gap:18px}
+.live-dot{font-size:9px;letter-spacing:.09em;font-weight:700;display:flex;align-items:center;gap:7px}
+.live-dot b{width:9px;height:9px;border-radius:50%;display:inline-block;background:#aaa;border:1px solid #333}
+.live-dot b.on{background:#222;box-shadow:0 0 0 3px #2222}
+.signout{border:2px solid var(--ink);background:#fff;border-radius:18px;padding:5px 12px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+
+/* Main */
+main{max-width:1200px;margin:0 auto;padding:0 32px 32px}
+.page-title{padding:28px 4px 18px}
+.page-title h1{font-size:31px;line-height:1;margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.metric{padding:16px;display:flex;flex-direction:column;border-radius:5px}
+.metric span{font-size:9px;font-weight:700;letter-spacing:.1em}
+.metric strong{font-size:31px;line-height:1.05;margin:4px 0}
+.metric small{font-size:9px;color:#666}
+.panel{padding:18px;border-radius:6px;margin-top:16px}
+.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.panel h3{font-size:20px;margin:5px 0 15px}
+.bars{display:grid;gap:13px}
+.bar>div:first-child{display:flex;justify-content:space-between;gap:8px;font-size:11px}
+.bar-bg{height:12px;border:2px solid var(--ink);margin-top:5px;background:#fff}
+.bar-bg i{display:block;height:100%;background:#222}
+.filters{display:flex;gap:7px}
+.filters button,.ack{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:5px 12px;font-size:9px;font-weight:700;cursor:pointer}
+.filters .sel{background:#171717;color:#fff}
+.alert-list{display:grid}
+.alert-row{display:grid;grid-template-columns:34px 1fr auto auto;gap:13px;align-items:center;border-top:1px solid #bbb;padding:12px 2px}
+.severity{width:28px;height:28px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:900}
+.severity.HIGH{background:#171717;color:#fff}
+.severity.MEDIUM{background:#ddd}
+.alert-content{min-width:0}
+.alert-title{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.alert-title b{font-size:12px}
+.alert-title span{font-size:8px;border:1px solid #777;border-radius:10px;padding:3px 7px}
+.alert-content p{font-family:system-ui,sans-serif;font-size:10px;margin:5px 0;color:#4d4d4d}
+.meta{display:flex;gap:12px;font-size:8px;color:#777;flex-wrap:wrap}
+.score{text-align:right;min-width:44px}
+.score strong{font-size:19px}
+.score small{font-size:8px}
+.ack{padding:5px 9px}
+.empty{text-align:center;padding:32px;display:grid;gap:5px}
+.empty b{font-size:14px}
+.empty span,.muted{font-size:10px;color:#777}
+.user-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.user-card{border:1.5px solid #777;background:#fff;padding:10px;display:grid;grid-template-columns:34px 1fr auto auto;gap:10px;align-items:center}
+.user-avatar{width:31px;height:31px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:900}
+.user-main{min-width:0}
+.user-main b,.user-main span{display:block}
+.user-main b{font-size:11px}
+.user-main span{font-size:8px;color:#777;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-risk{display:flex;align-items:center;gap:5px}
+.user-risk small,.user-count small{font-size:7px}
+.user-risk strong{font-size:15px}
+.user-risk strong.danger{background:#171717;color:#fff;padding:2px 6px;border-radius:12px}
+.user-risk strong.warn{background:#ddd;padding:2px 6px;border-radius:12px}
+.user-count{font-size:11px;text-align:right}
+.user-count small{display:block;color:#777}
+
+/* Login */
+.login{min-height:100vh;display:grid;place-items:center;padding:30px}
+.login-grid{width:min(960px,100%);display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center}
+.login-brand small{font-size:9px;letter-spacing:.15em}
+.login-brand h1{font-size:54px;line-height:.88;margin:12px 0}
+.login-brand h1 span{display:inline-block;border-bottom:4px solid var(--ink)}
+.login-brand p{font-size:12px;max-width:470px;line-height:1.5}
+.login-card{background:#fff;border:2px solid var(--ink);box-shadow:7px 7px 0 #bbb;padding:27px}
+.login-card h2{font-size:23px;margin:0 0 10px}
+.login-card label{display:block;font-size:9px;font-weight:700;margin:12px 0}
+.login-card input{display:block;width:100%;border:0;border-bottom:2px solid var(--ink);background:#fafaf8;padding:10px 4px;outline:none}
+.login-card button{width:100%;margin-top:18px;border:2px solid var(--ink);background:#171717;color:#fff;padding:11px;border-radius:4px;font-weight:700;cursor:pointer}
+.login-card button span{float:right}
+.error{border:2px solid var(--ink);padding:8px;margin-top:12px;font-size:9px;background:#eee}
+
+@media(max-width:1050px){
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .user-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .top{padding:10px 16px}
+  main{padding:0 16px 24px}
+  .page-title h1{font-size:24px}
+  .panel-head{flex-direction:column}
+  .alert-row{grid-template-columns:30px 1fr auto}
+  .ack{grid-column:2}
+  .score{grid-column:3;grid-row:1}
+  .login-grid{grid-template-columns:1fr;gap:25px}
+  .login-brand h1{font-size:40px}
+}

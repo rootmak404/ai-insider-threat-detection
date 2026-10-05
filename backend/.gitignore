@@ -1,0 +1,4 @@
+*.db
+model.joblib
+.venv/
+__pycache__/

@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+python-jose[cryptography]
+pydantic
+scikit-learn
+joblib
+python-multipart
