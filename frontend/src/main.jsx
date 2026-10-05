@@ -44,6 +44,14 @@ function Login({done}){
 
 function Dashboard({token,logout}){
   const[s,ss]=useState({}),[a,sa]=useState([]),[u,su]=useState([]),[live,slive]=useState(false),[filter,setFilter]=useState("ALL");
+  const[notes,setNotes]=useState([]),[open,setOpen]=useState(false),[toasts,setToasts]=useState([]);
+  const unread=notes.filter(n=>!n.read).length;
+  function notify(x){
+    setNotes(q=>[{...x,read:false},...q.filter(v=>v.id!==x.id)].slice(0,30));
+    setToasts(q=>[x,...q.filter(v=>v.id!==x.id)].slice(0,3));
+    setTimeout(()=>setToasts(q=>q.filter(v=>v.id!==x.id)),6000);
+  }
+  function toggleBell(){setOpen(o=>{if(o)setNotes(q=>q.map(n=>({...n,read:true})));return!o})}
   const H={Authorization:"Bearer "+token};
   async function load(){
     try{
@@ -57,7 +65,7 @@ function Dashboard({token,logout}){
     load();
     const w=new WebSocket(API.replace(/^http/,"ws")+"/api/ws");
     w.onopen=()=>{slive(true);w.send("connected")};w.onclose=()=>slive(false);
-    w.onmessage=e=>{const m=JSON.parse(e.data);if(m.type!=="security_alert")return;const x=m.alert;sa(q=>[x,...q.filter(v=>v.id!==x.id)]);if("Notification"in window&&Notification.permission==="granted")new Notification(x.risk_level+" Security Alert",{body:`${x.username} · ${x.title} · ${x.risk_score}/100`});load()};
+    w.onmessage=e=>{const m=JSON.parse(e.data);if(m.type!=="security_alert")return;const x=m.alert;sa(q=>[x,...q.filter(v=>v.id!==x.id)]);notify(x);if("Notification"in window&&Notification.permission==="granted")new Notification(x.risk_level+" Security Alert",{body:`${x.username} · ${x.title} · ${x.risk_score}/100`});load()};
     if("Notification"in window&&Notification.permission==="default")Notification.requestPermission();
     return()=>w.close()
   },[]);
@@ -68,6 +76,16 @@ function Dashboard({token,logout}){
     <header className="top">
       <div className="brand"><div className="brandmark">IT</div><div><b>INSIDER THREAT</b><span>DETECTION SYSTEM</span></div></div>
       <div className="top-right">
+        <div className="bell-wrap">
+          <button className={"bell"+(open?" sel":"")} onClick={toggleBell} aria-label={`Notifications, ${unread} unread`}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            {unread>0&&<span className="badge">{unread>9?"9+":unread}</span>}
+          </button>
+          {open&&<div className="note-panel paper">
+            <div className="note-head"><b>Notifications</b>{notes.length>0&&<button onClick={()=>setNotes([])}>Clear</button>}</div>
+            {notes.length?notes.map(n=><div className={"note"+(n.read?"":" unread")} key={n.id}><div className={"severity "+n.risk_level}>{n.risk_level==="HIGH"?"!":"·"}</div><div><b>{n.title}</b><span>{n.username} · {n.hostname} · {n.risk_score}/100</span><small>{new Date(n.timestamp).toLocaleTimeString()}</small></div></div>):<p className="muted">No new alerts this session.</p>}
+          </div>}
+        </div>
         <div className="live-dot"><b className={live?"on":""}/>{live?"LIVE":"RECONNECTING"}</div>
         <button className="signout" onClick={logout}>Sign out ↗</button>
       </div>
@@ -93,6 +111,7 @@ function Dashboard({token,logout}){
         <div className="user-grid">{u.length?u.slice(0,8).map((x,i)=><div className="user-card" key={i}><div className="user-avatar">{(x.username||"?")[0].toUpperCase()}</div><div className="user-main"><b>{x.username}</b><span>{x.hostname} · {x.platform}</span></div><div className="user-risk"><small>MAX</small><strong className={x.max_risk>=75?"danger":x.max_risk>=50?"warn":""}>{x.max_risk}</strong></div><div className="user-count">{x.alert_count}<small>alerts</small></div></div>):<div className="muted">No affected endpoints.</div>}</div>
       </section>
     </main>
+    <div className="toasts">{toasts.map(x=><div className={"toast paper "+x.risk_level} key={x.id} onClick={()=>setToasts(q=>q.filter(v=>v.id!==x.id))}><div className={"severity "+x.risk_level}>{x.risk_level==="HIGH"?"!":"·"}</div><div><b>{x.risk_level} · {x.title}</b><span>{x.username} on {x.hostname} · {x.risk_score}/100</span></div></div>)}</div>
   </div>
 }
 

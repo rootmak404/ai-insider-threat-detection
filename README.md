@@ -13,7 +13,7 @@ Stack: FastAPI, React/Vite, SQLite, lightweight Random Forest, WebSocket alerts.
 - Account Manipulation: local account database changes.
 - Security Policy Changes: local sudo/security-policy state changes.
 - Lightweight ML is used as an additional signal; deterministic security rules remain authoritative.
-- Medium/high-risk alerts are pushed live to the admin dashboard and optional HIGH-risk email notifications.
+- Medium/high-risk alerts are pushed live to the admin dashboard over WebSocket and raised as in-app notifications (bell with unread count, pop-up toasts) and browser notifications.
 - The dashboard intentionally shows flagged activity and aggregated risk, not all raw telemetry.
 
 ## Platform support
@@ -63,16 +63,7 @@ Demo admin: `admin / admin123`
 
 Set `ADMIN_USERNAME`, `ADMIN_PASSWORD` and `JWT_SECRET` for deployment.
 
-Optional SMTP variables:
-
-```text
-ALERT_EMAIL_ENABLED=true
-SMTP_HOST
-SMTP_PORT
-SMTP_USERNAME
-SMTP_PASSWORD
-ADMIN_ALERT_EMAIL
-```
+The backend only accepts browser requests from the dashboard origin. The default is `http://localhost:5173,http://127.0.0.1:5173`; set `FRONTEND_ORIGINS` (comma-separated) if you serve the frontend elsewhere.
 
 ## Testing
 
@@ -83,4 +74,4 @@ ADMIN_ALERT_EMAIL
 5. Insert a USB/removable device to trigger a HIGH-risk removable-media alert.
 6. Download a harmless test executable/script file if you want to exercise the dangerous-download rule.
 
-For real deployments, replace the demo credentials, set a strong JWT secret, restrict CORS, authenticate endpoint agents and use native OS audit sources for stronger forensic coverage.
+For real deployments, replace the demo credentials, set a strong JWT secret, set `FRONTEND_ORIGINS` to your dashboard URL, authenticate endpoint agents and use native OS audit sources for stronger forensic coverage.

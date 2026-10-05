@@ -1,7 +1,5 @@
 import os
 import sqlite3
-import smtplib
-from email.message import EmailMessage
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
@@ -18,10 +16,15 @@ DB = os.getenv("DB_PATH", os.path.join(os.path.dirname(__file__), "insider.db"))
 SECRET = os.getenv("JWT_SECRET", "CHANGE_ME_IN_PRODUCTION")
 ADMIN_USER = os.getenv("ADMIN_USERNAME", "admin")
 ADMIN_PASS = os.getenv("ADMIN_PASSWORD", "admin123")
+FRONTEND_ORIGINS = [
+    o.strip() for o in os.getenv(
+        "FRONTEND_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"
+    ).split(",") if o.strip()
+]
 
 app = FastAPI(title="Insider Threat Detection API", version="4.2")
 app.add_middleware(
-    CORSMiddleware, allow_origins=["*"], allow_credentials=True,
+    CORSMiddleware, allow_origins=FRONTEND_ORIGINS, allow_credentials=True,
     allow_methods=["*"], allow_headers=["*"]
 )
 bearer = HTTPBearer(auto_error=False)
@@ -98,32 +101,6 @@ async def broadcast(payload):
             await ws.send_json(payload)
         except Exception:
             sockets.discard(ws)
-
-def send_email(alert):
-    if os.getenv("ALERT_EMAIL_ENABLED", "false").lower() != "true":
-        return
-    host = os.getenv("SMTP_HOST")
-    username = os.getenv("SMTP_USERNAME")
-    password = os.getenv("SMTP_PASSWORD")
-    recipient = os.getenv("ADMIN_ALERT_EMAIL")
-    if not all([host, username, password, recipient]):
-        return
-    msg = EmailMessage()
-    msg["Subject"] = f"[Insider Threat] {alert['risk_level']} - {alert['title']}"
-    msg["From"] = username
-    msg["To"] = recipient
-    msg.set_content(
-        f"User: {alert['username']}\nHost: {alert['hostname']}\n"
-        f"Agent: {alert['agent_id']}\nRisk: {alert['risk_score']}/100\n\n"
-        f"{alert['explanation']}"
-    )
-    try:
-        with smtplib.SMTP(host, int(os.getenv("SMTP_PORT", "587")), timeout=10) as smtp:
-            smtp.starttls()
-            smtp.login(username, password)
-            smtp.send_message(msg)
-    except Exception as exc:
-        print("SMTP alert failed:", exc)
 
 @app.get("/api/health")
 def health():
@@ -216,8 +193,6 @@ async def ingest_event(event: Event):
 
     if alert:
         await broadcast({"type": "security_alert", "alert": alert})
-        if level == "HIGH":
-            send_email(alert)
 
     return {
         "accepted": True, "event_id": event_id, "risk_score": score,
