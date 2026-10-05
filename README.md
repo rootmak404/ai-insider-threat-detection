@@ -4,6 +4,14 @@ End-to-end multi-endpoint insider-threat monitoring platform for macOS, Windows 
 
 Stack: FastAPI, React/Vite, SQLite, lightweight Random Forest, WebSocket alerts.
 
+![Dashboard](docs/dashboard.png)
+
+## Architecture
+
+![System architecture](docs/architecture.png)
+
+The endpoint agent watches downloads, removable media, local account/privilege/policy state and interactive sessions, and sends metadata-only events to the FastAPI backend. Each event is scored by the deterministic rule engine, with the Random Forest as an extra signal; MEDIUM/HIGH results are stored as alerts in SQLite and pushed over WebSocket to the React dashboard, where an analyst reviews and acknowledges them.
+
 ## Detection coverage
 
 - Downloads with watchdog + polling fallback.

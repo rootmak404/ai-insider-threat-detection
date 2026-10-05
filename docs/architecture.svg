@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+<pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#d7d7d2"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171717"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#f6f6f2"/><rect width="1600" height="1000" fill="url(#dots)"/>
+<text x="40" y="58" font-size="12" font-weight="700" fill="#5c5c5c" text-anchor="start" letter-spacing="2">INSIDER THREAT DETECTION SYSTEM</text>
+<text x="40" y="92" font-size="32" font-weight="800" fill="#171717" text-anchor="start" letter-spacing="0">System Architecture</text>
+<text x="1560" y="92" font-size="13" font-weight="400" fill="#5c5c5c" text-anchor="end" letter-spacing="0">metadata-only telemetry · rules authoritative · ML as an extra signal</text>
+<rect x="45" y="135" width="400" height="750" rx="6" fill="#000" fill-opacity=".08"/>
+<rect x="40" y="130" width="400" height="750" rx="6" fill="#fdfdfb" stroke="#171717" stroke-width="2"/>
+<text x="60" y="160" font-size="10" font-weight="700" fill="#5c5c5c" text-anchor="start" letter-spacing="1.6">1 · ENDPOINT</text>
+<text x="60" y="186" font-size="22" font-weight="800" fill="#171717" text-anchor="start" letter-spacing="0">Endpoint Agent</text>
+<text x="60" y="206" font-size="12" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0" font-family="DejaVu Sans Mono">agent/agent.py · Python</text>
+<rect x="60" y="230" width="360" height="108" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="74" y="256" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Download monitor</text>
+<text x="408" y="254" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">Downloads/</text>
+<text x="74" y="278" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">watchdog observer + 2 s polling fallback</text>
+<text x="74" y="296" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">waits for stable file · extension, size, SHA-256</text>
+<rect x="60" y="356" width="360" height="108" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="74" y="382" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Removable media</text>
+<text x="408" y="380" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">1 s</text>
+<text x="74" y="404" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">/Volumes · drive letters · lsblk / mount paths</text>
+<text x="74" y="422" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">insert + remove events</text>
+<rect x="60" y="482" width="360" height="108" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="74" y="508" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Security-state snapshots</text>
+<text x="408" y="506" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">10 s</text>
+<text x="74" y="530" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">local accounts · admin / sudo groups</text>
+<text x="74" y="548" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">sudoers / exported security policy (diffed)</text>
+<rect x="60" y="608" width="360" height="108" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="74" y="634" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Session monitor</text>
+<text x="408" y="632" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">5 s</text>
+<text x="74" y="656" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">interactive logins / logouts via psutil</text>
+<text x="74" y="674" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">backend scores off-hours &amp; weekends</text>
+<line x1="60" y1="745" x2="420" y2="745" stroke="#171717" stroke-dasharray="5 5"/>
+<text x="60" y="772" font-size="13" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">macOS · Windows · Linux</text>
+<text x="60" y="794" font-size="12" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">No file contents, keystrokes, clipboard</text>
+<text x="60" y="812" font-size="12" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">or screenshots are collected.</text>
+<rect x="565" y="135" width="520" height="750" rx="6" fill="#000" fill-opacity=".08"/>
+<rect x="560" y="130" width="520" height="750" rx="6" fill="#fdfdfb" stroke="#171717" stroke-width="2"/>
+<text x="580" y="160" font-size="10" font-weight="700" fill="#5c5c5c" text-anchor="start" letter-spacing="1.6">2 · SERVER</text>
+<text x="580" y="186" font-size="22" font-weight="800" fill="#171717" text-anchor="start" letter-spacing="0">FastAPI Backend</text>
+<text x="580" y="206" font-size="12" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0" font-family="DejaVu Sans Mono">backend/app · Uvicorn</text>
+<rect x="580" y="230" width="480" height="70" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="594" y="256" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Event ingestion</text>
+<text x="1048" y="254" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">main.py</text>
+<text x="594" y="278" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">POST /api/events · Pydantic schema validation</text>
+<rect x="580" y="336" width="232" height="112" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="594" y="362" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Rule engine</text>
+<text x="800" y="360" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">rules.py</text>
+<text x="594" y="384" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">deterministic, authoritative</text>
+<text x="594" y="402" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">USB 85 · exec/script dl 90</text>
+<text x="594" y="420" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">privilege/account/policy 92</text>
+<text x="594" y="438" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">off-hours session ≥ 55</text>
+<rect x="828" y="336" width="232" height="112" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="842" y="362" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Random Forest</text>
+<text x="1048" y="360" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">ml.py</text>
+<text x="842" y="384" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">scikit-learn · model.joblib</text>
+<text x="842" y="402" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">5 binary event features</text>
+<text x="842" y="420" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">positive ⇒ score floor 60</text>
+<text x="842" y="438" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">trained by train_model.py</text>
+<rect x="580" y="484" width="480" height="74" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="594" y="510" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Risk scoring &amp; alerting</text>
+<text x="594" y="532" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">HIGH ≥ 75 · MEDIUM ≥ 50 · LOW &lt; 50  →  alert only if MEDIUM/HIGH</text>
+<rect x="580" y="594" width="232" height="96" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="594" y="620" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">SQLite</text>
+<text x="800" y="618" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">insider.db</text>
+<text x="594" y="642" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">events — all scored telemetry</text>
+<text x="594" y="660" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">alerts — MEDIUM / HIGH + ack</text>
+<rect x="828" y="594" width="232" height="96" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="842" y="620" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">WebSocket hub</text>
+<text x="1048" y="618" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">push</text>
+<text x="842" y="642" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">/api/ws</text>
+<text x="842" y="660" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">broadcasts security_alert</text>
+<rect x="580" y="726" width="480" height="128" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="594" y="752" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Admin REST API</text>
+<text x="1048" y="750" font-size="10" font-weight="600" fill="#5c5c5c" text-anchor="end" letter-spacing="0" font-family="DejaVu Sans Mono">JWT</text>
+<text x="594" y="774" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">POST /api/login → JWT (HS256, env-configured)</text>
+<text x="594" y="792" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0" font-family="DejaVu Sans Mono">GET /api/admin/stats · /alerts · /users</text>
+<text x="594" y="810" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0" font-family="DejaVu Sans Mono">POST /api/admin/alerts/{id}/ack</text>
+<text x="594" y="834" font-size="12.5" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">CORS limited to FRONTEND_ORIGINS</text>
+<line x1="696" y1="300" x2="696" y2="334" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<line x1="944" y1="300" x2="944" y2="334" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<line x1="696" y1="448" x2="696" y2="482" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<line x1="944" y1="448" x2="944" y2="482" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<line x1="696" y1="558" x2="696" y2="592" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<line x1="944" y1="558" x2="944" y2="592" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<line x1="696" y1="690" x2="696" y2="724" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<rect x="1205" y="135" width="360" height="750" rx="6" fill="#000" fill-opacity=".08"/>
+<rect x="1200" y="130" width="360" height="750" rx="6" fill="#fdfdfb" stroke="#171717" stroke-width="2"/>
+<text x="1220" y="160" font-size="10" font-weight="700" fill="#5c5c5c" text-anchor="start" letter-spacing="1.6">3 · ANALYST</text>
+<text x="1220" y="186" font-size="22" font-weight="800" fill="#171717" text-anchor="start" letter-spacing="0">React Dashboard</text>
+<text x="1220" y="206" font-size="12" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0" font-family="DejaVu Sans Mono">frontend · React + Vite</text>
+<rect x="1220" y="230" width="320" height="74" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1234" y="256" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Admin login</text>
+<text x="1234" y="278" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">JWT kept in browser storage</text>
+<rect x="1220" y="322" width="320" height="74" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1234" y="348" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Overview</text>
+<text x="1234" y="370" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">open / high / medium / affected users</text>
+<rect x="1220" y="414" width="320" height="74" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1234" y="440" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Threat vectors</text>
+<text x="1234" y="462" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">alert counts by detection category</text>
+<rect x="1220" y="506" width="320" height="74" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1234" y="532" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Recent alerts</text>
+<text x="1234" y="554" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">High / Medium filters · ACK button</text>
+<rect x="1220" y="598" width="320" height="92" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1234" y="624" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Notifications</text>
+<text x="1234" y="646" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">bell + unread count · pop-up toasts</text>
+<text x="1234" y="664" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">desktop browser notifications</text>
+<rect x="1220" y="726" width="320" height="74" rx="4" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1234" y="752" font-size="15" font-weight="700" fill="#171717" text-anchor="start" letter-spacing="0">Affected endpoints</text>
+<text x="1234" y="774" font-size="12.5" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">user · host · platform · max risk</text>
+<line x1="442" y1="285" x2="578" y2="265" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<rect x="457.95" y="235" width="84.1" height="22" rx="11" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="500" y="250" font-size="11" font-weight="700" fill="#171717" text-anchor="middle" letter-spacing="0" font-family="DejaVu Sans Mono">HTTP POST</text>
+<text x="500" y="300" font-size="11" font-weight="400" fill="#5c5c5c" text-anchor="middle" letter-spacing="0">JSON event</text>
+<line x1="1060" y1="642" x2="1218" y2="642" stroke="#171717" stroke-width="2.2" marker-end="url(#a)"/>
+<rect x="1097.95" y="613" width="84.1" height="22" rx="11" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1140" y="628" font-size="11" font-weight="700" fill="#171717" text-anchor="middle" letter-spacing="0" font-family="DejaVu Sans Mono">WebSocket</text>
+<text x="1140" y="664" font-size="11" font-weight="400" fill="#5c5c5c" text-anchor="middle" letter-spacing="0">live alert</text>
+<line x1="1220" y1="790" x2="1062" y2="790" stroke="#171717" stroke-width="2.2" marker-end="url(#a)" marker-start="url(#a)"/>
+<rect x="1094.5" y="761" width="91.0" height="22" rx="11" fill="#fff" stroke="#171717" stroke-width="1.6"/>
+<text x="1140" y="776" font-size="11" font-weight="700" fill="#171717" text-anchor="middle" letter-spacing="0" font-family="DejaVu Sans Mono">REST + JWT</text>
+<text x="1140" y="812" font-size="11" font-weight="400" fill="#5c5c5c" text-anchor="middle" letter-spacing="0">Bearer token</text>
+<text x="40" y="940" font-size="13" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">Flow:  agent detects a change  →  backend scores it (rules + ML)  →  MEDIUM/HIGH stored as an alert  →  pushed live to the dashboard  →  analyst acknowledges</text>
+<text x="40" y="964" font-size="12" font-weight="400" fill="#5c5c5c" text-anchor="start" letter-spacing="0">Demo-scale design: single SQLite file, one admin account, agents not yet authenticated.</text>
+</svg>
